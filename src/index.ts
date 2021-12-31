@@ -14,7 +14,19 @@ import DisplayConfig from "./objects/DisplayConfig";
 // @ts-ignore -- this is supposed to run in a browser (which can't load configs from disk)
 // so in this case the config will be in a separate, non-built, file loaded by index.html
 // we will assume this will always be here or else index.html is broken
-const config = <DisplayConfig>displayConfig
+const config = <DisplayConfig>{
+    coreIP: "bennett-syd.thepatrick.cloud",
+    corePort: 9330,
+    targetZone: "Schiit",
+    backlightService: "http://192.168.0.114:8713",
+    graphics: {
+        enableDithering: true
+    },
+    logging: {
+        logServiceHost: "localhost",
+        logServicePort: 55689
+    }
+}
 
 const logger = new LogService(config.logging.logServiceHost, config.logging.logServicePort, "Roon-Display")
 
